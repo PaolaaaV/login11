@@ -1,0 +1,57 @@
+<DOCTYPE html>
+<html lang="es">
+<head>
+<title> Practica 11 </title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> </head>
+<DIV ALIGN= "center"> <script language= JavaScript>
+let attempt = 3;
+function validate() {
+var usuar = document.getElementById("usuar").value;
+var password = document.getElementById("password").value; if (usuar == "Paola" && password == "Mimi") {
+alert("Ingreso exitosamente"); window.location = "pagina web.html"; return false;
+}
+if (usuar == "cliente" && password == "acceso") {
+alert("Ingreso exitosamente"); window.location = ".html"; return false;
+} else { attempt--;
+}
+alert(" Te queda " + attempt + " intentos mas ")
+if (attempt <= 0) {
+alert('Espera 5 segundos para seguir intentando'); document.getElementById("usuar").setAttribute('disabled','disabled');
+document.getElementById("password").setAttribute('disabled','disabled'); document.getElementById("sumbit").setAttribute('disabled','disabled');
+setTimeout(function(){
+document.getElementById("usuar").removeAttribute('disabled'); document.getElementById("password").removeAttribute('disabled');
+document.getElementById("sumbit").removeAttribute('disabled');
+},5000);
+attempt=3; }
+}
+    (function ($) {
+    var timeout;
+    $(document).on('mousemove', function (event) {
+        if (timeout !== undefined) {
+            window.clearTimeout(timeout);
+        }
+        timeout = window.setTimeout(function () {
+            //Creas una funcion nueva para jquery 
+            $(event.target).trigger('mousemoveend');
+        }, 5000); //determinas el tiempo en milisegundo aqui 5 segundos
+    });
+}(jQuery));
+
+$(document).on('mousemoveend', function () { //agregas la nueva funcion creada, puede ser una clase o un id
+    alert("mouse detenido");
+});
+
+ </script>
+<FORM id="form_id" method="POST" name="form" action="file:///C:/Users/famsa493/Documents/CPW/pagina%20web.html">
+<FONT SIZE="6" FACE= "Friendly Schoolmates" COLOR= "828282">
+<label> Usuario:</label> <input type="text" name="usuar" id="usuar" planceholder="ingrese usuario">
+<label>Contarseña:</label> <input type="password" name="password" id="password" planceholder="ingrese password">
+<input type="button" value="login" id="submit" onclick="validate()">
+</FORM>
+</FONT>
+<FONT SIZE="6" FACE= "Friendly Schoolmates" COLOR= "828282"> <p>Práctica 11</p>
+<p>Luz Paola Vargas Jaramillo</p>
+<DIV STYLE="text-align: center;">
+    </DIV></FONT>
+    </body>
+</html>
